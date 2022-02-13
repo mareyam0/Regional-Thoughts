@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Twitter Analysis</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/calvinmetcalf/leaflet.shapefile@gh-pages/leaflet.shpfile.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/calvinmetcalf/shapefile-js@gh-pages/dist/shp.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{url_for('static', filename='js/tweets.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/geojson-bbox@0.0.0/dist/geojson-bbox.min.js"></script>
+
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div id="digisat" style="width: 50%; height: 100%; position: absolute;"></div>
+    </div>
+    <div class="col">
+       <div class="p-3 bg-light text-center">
+          <p class="display-5">Regional Thoughts</p>
+          
+          <div class="progress" id="pbar">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              Querying OSM API
+            </div>
+          </div>
+
+          <div id="tile-error" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                An error occurred for this tile. Please choose a different location
+              </div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>
+          
+          <div id="tile-success" class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div id="tile-success-text">
+            </div>
+          </div>
+
+       </div>
+    </div>
+  </div>
+</div>
+<script>
+
+    var progress = document.getElementById("pbar");
+    progress.style.visibility="hidden";
+    
+    var error_message = document.getElementById("tile-error");
+    error_message.style.visibility="hidden";
+
+    var success_message = document.getElementById("tile-success");
+    success_message.style.visibility="hidden";
+    
+    // center of the map
+    var center = [0, 0];
+
+    // Set up the OSM layer
+    var osm = L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18
+      });
+
+    var gmap = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+      maxZoom: 20,
+      subdomains:['mt0','mt1','mt2','mt3']
+    });
+
+    // Create the map
+    var map = L.map('digisat', {
+      center: [40.04, -99.58],
+      zoom: 4,
+      layers: [osm, gmap]
+    });
+
+    var baseMaps = {
+        "Google": gmap,
+        "OSM": osm
+    };
+
+    L.control.layers(baseMaps).addTo(map);
+    
+    // Initialise the FeatureGroup to store editable layers
+    var editableLayers = new L.FeatureGroup();
+    map.addLayer(editableLayers);
+
+    var drawPluginOptions = {
+      position: 'topright',
+      draw: {
+        polygon: false,
+        polyline: false,
+        circle: false, // Turns off this drawing tool
+        rectangle: true,
+        marker: false,
+        },
+      edit: {
+        featureGroup: editableLayers, //REQUIRED!!
+        remove: false
+      }
+    };
+
+    // Initialise the draw control and pass it the FeatureGroup of editable layers
+    var drawControl = new L.Control.Draw(drawPluginOptions);
+    map.addControl(drawControl);
+
+    var editableLayers = new L.FeatureGroup();
+    map.addLayer(editableLayers);
+
+    map.on('draw:drawstart', function(e) {
+      progress.style.visibility="hidden";
+      success_message.style.visibility="hidden";
+      error_message.style.visibility="hidden";
+      editableLayers.clearLayers(e.layer);
+    });
+
+    L.geoJSON(pointJSON).addTo(map);
+
+    map.on('draw:created', function(e) {
+      var type = e.layerType,
+        layer = e.layer;
+
+      editableLayers.addLayer(layer);
+      error_message.style.visibility="hidden";
+      success_message.style.visibility="hidden";
+      progress.style.visibility="visible";
+
+      var json = editableLayers.toGeoJSON();
+      var coords = {value: bbox(json)}
+
+      $.ajax({
+            url: '/download',
+            type: 'POST',
+            data: JSON.stringify({coords}),
+            contentType: 'application/json;charset=UTF-8'
+        })
+        .done(function(result){     
+            progress.style.visibility="hidden";
+
+            if (result == "0") {
+              error_message.style.visibility="visible";
+            } else {
+              error_message.style.visibility="hidden";
+              progress.style.visibility="hidden";
+              success_message.style.visibility="visible";
+
+              var div = document.getElementById('tile-success-text');
+              div.innerHTML += 'Downloaded Road Network <b>';
+
+              $.getJSON("{{url_for('static', filename='geojson/roads.geojson')}}", function( data ) {
+                L.geoJson(data).addTo(map);
+              });
+              
+            }
+        })
+
+    });
+
+</script>
+</body>
+</html>
