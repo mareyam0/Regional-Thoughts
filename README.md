@@ -27,9 +27,15 @@ For this purpose, we chose to create this solution that allows to users, based o
 <h2 id = "methodology">1. Methodology</h2>
 
 
-1. Firstly, to get the geo-tagged tweets, the user need some keys provided by twitter (see "config.ini" file).
-2. We used twitter API to get the tweets we need ("twitter_api.py" file). 
-3. we
+1. Firstly, to get the geo-tagged tweets, the user need some keys provided by twitter (see "config.ini" file);
+2. We used twitter API to get the tweets we need ("twitter_api.py" file);
+3. we proceeded by cleaning the data (organised in a DataFrame) and convert it to a GeoDataFrame (with the geometry column);
+4. we used "KeyBert" as a library for Natural Language Processing in Python to extract keywords from tweets;
+5. we proceeded then by a sentimental analysis: we calculated the subjectivity and the polarity of tweets using "textblob library"
+
+
+
+
 
 
 <h2 id = "steps">2. How can I run this solution ?</h2>
@@ -37,9 +43,17 @@ For this purpose, we chose to create this solution that allows to users, based o
 
 
 
-libraries for Natural Language Processing in Python.
+
 
 <h2 id = "Authors">3. Authors</h2>
-
+<b>Jaskaran Singh PURI</b><br>
+Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
+</p>
+<b>Mareyam Belcaid</b><br>
+Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
+</p>
+<b>Maryeme Akhatar</b><br>
+Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
+</p>
 
 
