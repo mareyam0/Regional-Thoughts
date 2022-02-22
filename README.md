@@ -32,14 +32,29 @@ For this purpose, we chose to create this solution that allows to users, based o
 2. We used twitter API to get the tweets we need ("twitter_api.py" file);
 3. we proceeded by cleaning the data (organised in a DataFrame) and convert it to a GeoDataFrame (with the geometry column);
 4. we used **"KeyBert"** as a library for Natural Language Processing in Python to extract keywords from tweets and store them in the column "keywords";
-5. we proceeded then by a sentimental analysis: we calculated the subjectivity and the polarity of tweets using **"textblob library"** and according to the resulting values we filtred the tweets by "positive", "negative" and "neutral";
+5. we proceeded then by a sentimental analysis: we calculated the subjectivity and the polarity of tweets using **"textblob"** library in python and according to the resulting values we filtred the tweets by "positive", "negative" and "neutral";
 6. we did some analysis to understand the results
 7. we have established a connection with a spatial database under **PostgreSQL**;
-8. 
+8. The next step was the **SQL** queries to extract keywords and polarity, calculate the number of people tweeting using each device (Android/Iphone) inside a polygon chosen by the user. the definition of the dominant polarity and the wordcloud were done using **python**;
+9. Also using **SQL** we created queries that allow to select from the database the tweets based on time of sharing or their polarity;
+10. The visualisation of the interactive map was done using HTML and Javascript.
+
+The next Figure resume the steps behind the creation of this solution:
+
+############
+
+
+
+<p align="center">Figure 1. Steps behind the creation of this solution</p>
+
 
 
 
 <h2 id = "structure">2. File Structure</h2>
+
+
+
+<p align="center">Figure 1. File structure</p>
 
 
 <h2 id = "steps">3. How can I run this solution ?</h2>
