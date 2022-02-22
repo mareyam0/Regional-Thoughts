@@ -1,9 +1,9 @@
 <h1 align="center"><b>Regional-Thoughts</b></h1>
 
 
-<p align="center">
-<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png">
-</p>
+
+<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png" align="right">
+
 
 
 
