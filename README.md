@@ -1,8 +1,13 @@
 <h1 align="center"><b>Regional-Thoughts</b></h1>
 
-<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png">
 
-Twitter is online news and social networking site where people communicate in short messages called tweets. The data provided by Twitter, and the insights we're able to glean from them, can be truly world-changing, in more ways than most people realize.
+<p align="center">
+<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png">
+</p>
+
+
+
+Twitter is an online news and social networking site where people communicate in short messages called tweets. The data provided by Twitter, and the insights we're able to glean from them, can be truly world-changing, in more ways than most people realize.
 Considering the importance of tweets in daily life and the amount of data they provide, it would be interesting to develop a solution that can provide some knowledge about ***regional thoughts***.
 
 For this purpose, we chose to create this solution that allows to users, based on geo-tagged tweets, to have an idea about the most discussed subjects in any area (in this example, we focused on USA as study area, considering that most tweets are in english), the polarity of tweets, tweets shared in a specific time and other information.
