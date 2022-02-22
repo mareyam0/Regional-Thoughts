@@ -19,6 +19,7 @@ For this purpose, we chose to create this solution that allows to users, based o
   <summary>Contents</summary>
   <ol>
     <li><a href = "#methodology">Methodology</a></li>
+    <li><a href = "#structure">File structure</a></li>
     <li><a href = "#steps">How can I run this solution ?</a></li>
     <li><a href = "#Authors">Authors</a></li>
   </ol>
@@ -38,17 +39,19 @@ For this purpose, we chose to create this solution that allows to users, based o
 
 
 
+<h2 id = "structure">2. File Structure</h2>
+
+
+<h2 id = "steps">3. How can I run this solution ?</h2>
 
 
 
-<h2 id = "steps">2. How can I run this solution ?</h2>
 
 
 
 
 
-
-<h2 id = "Authors">3. Authors</h2>
+<h2 id = "Authors">4. Authors</h2>
 <b>Jaskaran Singh PURI</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
 </p>
