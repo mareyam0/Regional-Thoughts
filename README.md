@@ -49,6 +49,7 @@ The next Figure resume the steps behind the creation of this solution:
 
 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <h2 id = "structure">2. File Structure</h2>
 
@@ -56,6 +57,7 @@ The next Figure resume the steps behind the creation of this solution:
 
 <p align="center">Figure 1. File structure</p>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <h2 id = "steps">3. How can I run this solution ?</h2>
 
@@ -65,6 +67,7 @@ The next Figure resume the steps behind the creation of this solution:
 
 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <h2 id = "Authors">4. Authors</h2>
 <b>Jaskaran Singh PURI</b><br>
@@ -76,5 +79,6 @@ Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.
 <b>Maryeme AKHATAR</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
 </p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
