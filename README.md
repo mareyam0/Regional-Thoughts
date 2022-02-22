@@ -1,7 +1,6 @@
 <h1 align="center"><b>Regional-Thoughts</b></h1>
 
-![RegionalThoughts_Wordcloud](https://user-images.githubusercontent.com/99036510/155219900-318cc4bb-c701-4467-a057-f7dfb71cf91e.png)
-
+<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png">
 
 Twitter is online news and social networking site where people communicate in short messages called tweets. The data provided by Twitter, and the insights we're able to glean from them, can be truly world-changing, in more ways than most people realize.
 Considering the importance of tweets in daily life and the amount of data they provide, it would be interesting to develop a solution that can provide some knowledge about ***regional thoughts***.
