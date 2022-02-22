@@ -25,6 +25,9 @@ For this purpose, we chose to create this solution that allows to users, based o
   </ol>
 </details>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 <h2 id = "methodology">1. Methodology</h2>
 
 
