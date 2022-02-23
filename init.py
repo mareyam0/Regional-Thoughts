@@ -77,7 +77,7 @@ g_tweets['keywords'] = g_tweets['text'].progress_apply(getKeyword)
 g_tweets['analysis'] = g_tweets['text'].apply(getSentiment)
 
 ## Set CRS
-g_tweets.set_crs(epsg=4326, inplace=True, allow_override=True)
+g_tweets.set_crs(epsg=3857, inplace=True, allow_override=True)
 
 ## Create table in postgis and insert data
 gpd.GeoDataFrame.to_postgis(g_tweets, name = table_name, con = engine, schema = 'public', if_exists = 'replace')
