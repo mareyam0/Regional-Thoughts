@@ -6,7 +6,7 @@
 </p>
 
 <p>
-    <a href="https://github.com/mareyam0/Regional-Thoughts/commits/master">
+    <a href="https://github.com/mareyam0/Regional-Thoughts/commits/main">
         <img alt="Last commit" src="https://img.shields.io/github/last-commit/deepset-ai/haystack">
     </a>
 </p>
@@ -23,7 +23,7 @@ For this purpose, we chose to create this solution that allows to users, based o
 ## :mortar_board: Features
 
 <ul>
-  <li>Get Following Statistics For ```Polygon```
+  <li>Get Following Statistics For Bounding Box
   <ul>
     <li> State Name | Total Tweets | Area of bbox
     <li> Tweets intersection OSM Roads
