@@ -82,4 +82,6 @@ g_tweets.set_crs(epsg=4326, inplace=True, allow_override=True)
 ## Create table in postgis and insert data
 gpd.GeoDataFrame.to_postgis(g_tweets, name = table_name, con = engine, schema = 'public', if_exists = 'replace')
 
+c = engine.execute("CREATE INDEX idx_hour ON geo_tweets(hour);")
+c.close()
 print("DB Setup Completed!")
