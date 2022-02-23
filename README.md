@@ -1,16 +1,42 @@
 <h1 align="center"><b>Regional-Thoughts</b></h1>
 
 
+<p align="center">
+<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png">
+</p>
 
-<img width="300" alt="RegionalThoughts_Wordcloud" src="https://user-images.githubusercontent.com/99036510/155221764-59abc221-d588-4ceb-820b-0ce8e20b93a1.png" align="right">
-
-
-
+<p>
+    <a href="https://github.com/deepset-ai/haystack/releases">
+        <img alt="Release" src="https://img.shields.io/github/release/deepset-ai/haystack">
+    </a>
+    <a href="https://github.com/deepset-ai/haystack/commits/master">
+        <img alt="Last commit" src="https://img.shields.io/github/last-commit/deepset-ai/haystack">
+    </a>
+</p>
 
 Twitter is an online news and social networking site where people communicate in short messages called tweets. The data provided by Twitter, and the insights we're able to glean from them, can be truly world-changing, in more ways than most people realize.
 Considering the importance of tweets in daily life and the amount of data they provide, it would be interesting to develop a solution that can provide some knowledge about ***regional thoughts***.
 
 For this purpose, we chose to create this solution that allows to users, based on geo-tagged tweets, to have an idea about the most discussed subjects in any area (in this example, we focused on USA as study area, considering that most tweets are in english), the polarity of tweets, tweets shared in a specific time and other information.
+
+<p align="center">
+<img width="300" alt="Product Page" src="https://github.com/mareyam0/Regional-Thoughts/tree/main/static/images/product.png">
+</p>
+
+## :mortar_board: Features
+
+<ul>
+  <li>Get Following Statistics For ```Polygon```
+  <ul>
+    <li> State Name | Total Tweets | Area of bbox
+    <li> Tweets intersection OSM Roads
+    <li> Wordcloud
+    <li> Sentiment over time
+    <li> Device Usage
+  </ul>
+  <li>Sentiment For 5 Time Durations For USA
+  <li>Sample Location of Positive/Negative/Neutral Tweets
+</ul>
 
 <!-- CONTENTS -->
 <h2 id = "contents">Contents</h2>
@@ -19,17 +45,15 @@ For this purpose, we chose to create this solution that allows to users, based o
   <summary>Contents</summary>
   <ol>
     <li><a href = "#methodology">Methodology</a></li>
-    <li><a href = "#structure">File structure</a></li>
-    <li><a href = "#steps">How can I run this solution ?</a></li>
-    <li><a href = "#Authors">Authors</a></li>
+    <li><a href = "#pre">Prerequisites</a></li>
+    <li><a href = "#tweet">Configure Tweetpy</a></li>
+    <li><a href = "#db">Database</a></li>
+    <li><a href = "#init">Installation</a></li>
+    <li><a href = "#authors">Authors</a></li>
   </ol>
 </details>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<h2 id = "methodology">1. Methodology</h2>
-
+<h2 id = "methodology">Methodology</h2>
 
 1. Firstly, to get the geo-tagged tweets, the user need some keys provided by twitter (see "config.ini" file);
 2. We used twitter API to get the tweets we need ("twitter_api.py" file);
@@ -50,38 +74,76 @@ The next Figure resume the steps behind the creation of this solution:
 
 <p align="center">Figure 1. Steps behind the creation of this solution</p>
 
+<h2 id = "pre">Prerequisites</h2>
+1. Postgres 14.1
+2. Python 3.10
+
+<h2 id = "tweet">API Configuration</h2>
+
+Configure the following API Keys in ```config.ini``` for twitter connection using ```Tweepy```
+
+```
+[twitter]
+
+api_key = 
+api_key_secret = 
+
+access_token = 
+access_token_secret = 
+```
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<h2 id = "db">Database Setup</h2>
 
-<h2 id = "structure">2. File Structure</h2>
+Following parameters can be configure in ```init.py``` and ```app.py```
+```
+database = "gps"
+user = "postgres"
+password = "postgres"
+host = "localhost"
+port = 5432
+table_name = "geo_tweets"
+```
 
+<span id="init">## :floppy_disk: Installation</span>
 
+Setup Python Environment
+```
+git clone https://github.com/mareyam0/Regional-Thoughts
+conda install -n py10 python=3.10
+conda activate py10
+pip3 install -r requirements.txt
+```
 
-<p align="center">Figure 2. File structure</p>
+Load Data
+```
+cd Regional-Thoughts
+python init.py
+```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Launch Application
+```
+set FLASK_APP=app.py (Windows)
+export FLASK_APP=app.py (Linux)
 
-<h2 id = "steps">3. How can I run this solution ?</h2>
+flask run
+```
 
+View Web Page
+```
+Visit http://localhost:5000 in browser
+```
 
+<span id="authors">## :heart: Authors</span>
 
-
-
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<h2 id = "Authors">4. Authors</h2>
 <b>Jaskaran Singh PURI</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
 </p>
-<b>Mareyam BELCAID</b><br>
+<b>Mareyam Belcaid</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
 </p>
-<b>Maryeme AKHATAR</b><br>
+<b>Maryeme Akhatar</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
 </p>
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
