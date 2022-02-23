@@ -20,13 +20,13 @@ Considering the importance of tweets in daily life and the amount of data they p
 For this purpose, we chose to create this solution that allows to users, based on geo-tagged tweets, to have an idea about the most discussed subjects in any area (in this example, we focused on USA as study area, considering that most tweets are in english), the polarity of tweets, tweets shared in a specific time and other information.
 
 <p align="center">
-<img width="300" alt="Product Page" src="https://github.com/mareyam0/Regional-Thoughts/tree/main/static/images/product.png">
+<img width="300" alt="Product Page" src="https://github.com/mareyam0/Regional-Thoughts/blob/main/static/images/product.PNG">
 </p>
 
 ## :mortar_board: Features
 
 <ul>
-  <li>Get Following Statistics For ```Polygon```
+  <li>Get Following Statistics For `Polygon`
   <ul>
     <li> State Name | Total Tweets | Area of bbox
     <li> Tweets intersection OSM Roads
@@ -58,7 +58,7 @@ For this purpose, we chose to create this solution that allows to users, based o
 1. Firstly, to get the geo-tagged tweets, the user need some keys provided by twitter (see "config.ini" file);
 2. We used twitter API to get the tweets we need ("twitter_api.py" file);
 3. we proceeded by cleaning the data (organised in a DataFrame) and convert it to a GeoDataFrame (with the geometry column);
-4. we used **"KeyBert"** as a library for Natural Language Processing in Python to extract keywords from tweets and store them in the column "keywords";
+4. we used **"KeyBert/Yake"** as a library for Natural Language Processing in Python to extract keywords from tweets and store them in the column "keywords";
 5. we proceeded then by a sentimental analysis: we calculated the subjectivity and the polarity of tweets using **"textblob"** library in python and according to the resulting values we filtred the tweets by "positive", "negative" and "neutral";
 6. we did some analysis to understand the results
 7. we have established a connection with a spatial database under **PostgreSQL**;
@@ -75,8 +75,10 @@ The next Figure resume the steps behind the creation of this solution:
 <p align="center">Figure 1. Steps behind the creation of this solution</p>
 
 <h2 id = "pre">Prerequisites</h2>
-1. Postgres 14.1
-2. Python 3.10
+<ul>
+<li>1. Postgres 14.1
+<li>2. Python 3.10
+</ul>
 
 <h2 id = "tweet">API Configuration</h2>
 
@@ -105,7 +107,7 @@ port = 5432
 table_name = "geo_tweets"
 ```
 
-<span id="init">## :floppy_disk: Installation</span>
+## :floppy_disk: Installation
 
 Setup Python Environment
 ```
@@ -134,7 +136,7 @@ View Web Page
 Visit http://localhost:5000 in browser
 ```
 
-<span id="authors">## :heart: Authors</span>
+## :heart: Authors
 
 <b>Jaskaran Singh PURI</b><br>
 Master's degree in Geospatial Technologies at <a href ="https://www.novaims.unl.pt/" target = "_blank">NOVA University of Lisbon</a>, <a href ="https://www.uni-muenster.de/en/" target = "_blank">WWU Münster</a> and <a href ="https://www.uji.es/" target = "_blank">UJI</a><br>
