@@ -63,13 +63,13 @@ For this purpose, we chose to create this solution that allows to users, based o
 9. Also using **SQL** we created queries that allow to select from the database the tweets based on time of sharing or their polarity;
 10. The visualisation of the interactive map was done using HTML and Javascript.
 
-The next Figure resume the steps behind the creation of this solution:
+The next Figure resume the steps of the creation of this solution:
 
 <p align="center"> 
 <img width="500" alt="process" src="https://user-images.githubusercontent.com/99036510/155242766-f775f514-3bbb-4c84-87de-14d0447961de.png" >
 </p>
 
-<p align="center">Figure 1. Steps behind the creation of this solution</p>
+<p align="center">Figure 1. Steps of the creation of this solution</p>
 
 <h2 id = "pre">Prerequisites</h2>
 <ul>
