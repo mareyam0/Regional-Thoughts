@@ -6,10 +6,7 @@
 </p>
 
 <p>
-    <a href="https://github.com/deepset-ai/haystack/releases">
-        <img alt="Release" src="https://img.shields.io/github/release/deepset-ai/haystack">
-    </a>
-    <a href="https://github.com/deepset-ai/haystack/commits/master">
+    <a href="https://github.com/mareyam0/Regional-Thoughts/commits/master">
         <img alt="Last commit" src="https://img.shields.io/github/last-commit/deepset-ai/haystack">
     </a>
 </p>
@@ -20,13 +17,13 @@ Considering the importance of tweets in daily life and the amount of data they p
 For this purpose, we chose to create this solution that allows to users, based on geo-tagged tweets, to have an idea about the most discussed subjects in any area (in this example, we focused on USA as study area, considering that most tweets are in english), the polarity of tweets, tweets shared in a specific time and other information.
 
 <p align="center">
-<img width="300" alt="Product Page" src="https://github.com/mareyam0/Regional-Thoughts/blob/main/static/images/product.PNG">
+<img alt="Product Page" src="https://github.com/mareyam0/Regional-Thoughts/blob/main/static/images/product.PNG">
 </p>
 
 ## :mortar_board: Features
 
 <ul>
-  <li>Get Following Statistics For `Polygon`
+  <li>Get Following Statistics For ```Polygon```
   <ul>
     <li> State Name | Total Tweets | Area of bbox
     <li> Tweets intersection OSM Roads
@@ -76,8 +73,8 @@ The next Figure resume the steps behind the creation of this solution:
 
 <h2 id = "pre">Prerequisites</h2>
 <ul>
-<li>1. Postgres 14.1
-<li>2. Python 3.10
+<li>Postgres 14.1
+<li>Python 3.10
 </ul>
 
 <h2 id = "tweet">API Configuration</h2>
@@ -133,7 +130,7 @@ flask run
 
 View Web Page
 ```
-Visit http://localhost:5000 in browser
+http://localhost:5000
 ```
 
 ## :heart: Authors
