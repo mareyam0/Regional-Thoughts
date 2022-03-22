@@ -1,12 +1,5 @@
 <h1 align="center"><b>Regional-Thoughts</b></h1>
 
-
-<p>
-    <a href="https://github.com/mareyam0/Regional-Thoughts/commits/main">
-        <img alt="Last commit" src="https://img.shields.io/github/last-commit/deepset-ai/haystack">
-    </a>
-</p>
-
 Twitter is an online news and social networking site where people communicate in short messages called tweets. The data provided by Twitter, and the insights we're able to glean from them, can be truly world-changing, in more ways than most people realize.
 Considering the importance of tweets in daily life and the amount of data they provide, it would be interesting to develop a solution that can provide some knowledge about ***regional thoughts***.
 
